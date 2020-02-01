@@ -19,5 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'ProfileController@show');
-
 Route::post('/profile/postTweet', 'ProfileController@validateNewTweet');
+
+Route::get('/showProfiles', 'ProfileController@showAllUsers');

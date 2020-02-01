@@ -35,4 +35,15 @@ class ProfileController extends Controller
             return view('profile');
         }
     }
+
+    function showAllUsers() {
+        if(Auth::check()) {
+            $users = \App\User::all();
+            $follows = \App\Follows::where('following', Auth::user()->name)->get();
+            return view('allUsers', ['users' => $users, 'follows' => $follows]);
+        } else {
+            return redirect('/home');
+        }
+
+    }
 }
